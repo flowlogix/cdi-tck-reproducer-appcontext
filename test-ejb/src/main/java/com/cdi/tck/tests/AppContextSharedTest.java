@@ -1,26 +1,27 @@
 package com.cdi.tck.tests;
 
 import com.cdi.tck.ejb.BarBean;
-import jakarta.annotation.PostConstruct;
+import com.cdi.tck.ejb.TestRemote;
 import jakarta.ejb.EJB;
-import jakarta.ejb.Singleton;
 import com.cdi.tck.ejb.FooRemote;
-import jakarta.ejb.Startup;
+import jakarta.ejb.Stateless;
+import jakarta.ejb.TransactionAttribute;
+import jakarta.ejb.TransactionAttributeType;
 import jakarta.inject.Inject;
 import lombok.SneakyThrows;
 
-@Singleton
-@Startup
-public class AppContextSharedTest {
+@Stateless
+@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+public class AppContextSharedTest implements TestRemote {
     @Inject
     BarBean bar;
 
-    @EJB(lookup = "java:global/remote-ejb/com.cdi.tck-remote-ejb-1.x-SNAPSHOT/FooBean!com.cdi.tck.ejb.FooRemote")
+    @EJB(lookup = "java:global/remote-ejb/test-ejb/FooBean!com.cdi.tck.ejb.FooRemote")
     FooRemote fooRemote;
 
-    @PostConstruct
+    @Override
     @SneakyThrows
-    void init() {
+    public void test() {
         System.out.format("barPing: %f\n", bar.compute().get());
 
         System.out.println("AppContextSharedTest initialized");

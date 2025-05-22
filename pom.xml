@@ -13,6 +13,7 @@
         <module>remote-ejb-ear</module>
         <module>test-ejb</module>
         <module>test-ejb-ear</module>
+        <module>war1</module>
     </modules>
 
     <parent>

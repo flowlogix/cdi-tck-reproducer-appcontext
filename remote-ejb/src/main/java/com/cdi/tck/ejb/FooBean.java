@@ -2,6 +2,8 @@ package com.cdi.tck.ejb;
 
 import com.cdi.tck.application.SimpleApplicationBean;
 import jakarta.ejb.Stateless;
+import jakarta.ejb.TransactionAttribute;
+import jakarta.ejb.TransactionAttributeType;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.ContextNotActiveException;
 import jakarta.enterprise.context.spi.Context;
@@ -9,6 +11,7 @@ import jakarta.enterprise.inject.spi.BeanManager;
 import jakarta.inject.Inject;
 
 @Stateless
+@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 public class FooBean implements FooRemote {
     @Inject
     BeanManager beanManager;
