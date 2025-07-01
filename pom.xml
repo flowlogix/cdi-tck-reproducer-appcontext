@@ -28,7 +28,7 @@
         <flowlogix.depchain.version>68</flowlogix.depchain.version>
         <flowlogix.version>9.0.10</flowlogix.version>
         <arquillian.payara.version>3.1</arquillian.payara.version>
-        <checkstyle.supressionsLocation>${maven.multiModuleProjectDirectory}/src/checkstyle/suppressions.xml</checkstyle.supressionsLocation>
+        <checkstyle.suppressionsLocation>${maven.multiModuleProjectDirectory}/src/checkstyle/suppressions.xml</checkstyle.suppressionsLocation>
         <checkstyle.headerLocation>${maven.multiModuleProjectDirectory}/src/checkstyle/apache-header.txt</checkstyle.headerLocation>
         <maven.build.cache.enabled>false</maven.build.cache.enabled>
         <!-- Turn on console logging for tests -->
